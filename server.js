@@ -1,6 +1,6 @@
 //a very very simple server
 
-var app = require('https').createServer(handler)
+var app = require('http').createServer(handler)
 var io = require('socket.io')(app);
 var fs = require('fs');
 
