@@ -7,7 +7,7 @@ var server = app.listen(8081, function () {
 })
 var io = require('socket.io')(server);    //http://socket.io/docs/
 
-http.listen(8080, "127.0.0.1");
+https.listen(8080, "127.0.0.1");
 
 io.sockets.on('connection', function (socket) {
   console.log("Client ID"+socket.id+" connected");
