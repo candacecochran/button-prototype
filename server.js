@@ -1,10 +1,21 @@
 //a very very simple server
 
+<<<<<<< HEAD
 var app = require('http').createServer(handler)
 var io = require('socket.io')(app);
 var fs = require('fs');
 
 app.listen(80);
+=======
+var express = require('express');
+var app = express();
+var server = server.listen(8081, function () {
+  console.log("Shazam! listening on port 8081");
+})
+var io = require('socket.io')(server);    //http://socket.io/docs/
+
+app.use(express.static('public'));
+>>>>>>> origin/master
 
 io.sockets.on('connection', function (socket) {
   console.log("Client ID"+socket.id+" connected");
