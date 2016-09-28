@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-var socket = io('http://localhost');    //http://socket.io/docs/
-=======
-var socket = io.connect( 'https://localhost:8081' );     //http://socket.io/docs/
->>>>>>> origin/master
+var socket = io('http://127.0.0.1:8081');
 var message_state = 0;
 var rightDiameter = 0;
 var leftDiameter = 0;
