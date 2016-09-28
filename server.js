@@ -2,12 +2,12 @@
 
 var express = require('express');
 var app = express();
-var server = app.listen(8081, function () {
+var server = server.listen(8081, function () {
   console.log("Shazam! listening on port 8081");
 })
 var io = require('socket.io')(server);    //http://socket.io/docs/
 
-server.listen(8081);
+app.use(express.static('public'));
 
 io.sockets.on('connection', function (socket) {
   console.log("Client ID"+socket.id+" connected");
