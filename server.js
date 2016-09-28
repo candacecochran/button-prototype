@@ -6,9 +6,13 @@ var fs = require('fs');
 
 app.listen(80);
 
+<<<<<<< HEAD
 
 app.use(express.static('public'));
 >>>>>>> origin/master
+=======
+app.use(express.static('public'));
+>>>>>>> parent of 6fb9a2a... updated-server
 
 io.sockets.on('connection', function (socket) {
   console.log("Client ID"+socket.id+" connected");
