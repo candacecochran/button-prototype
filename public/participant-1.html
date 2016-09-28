@@ -7,17 +7,35 @@ We will generally stick with markup below for most of our examples -->
   <head>
     <meta charset="utf-8">
     <title>template html file</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.1, minimum-scale=1.1, maximum-scale=1.1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Team 1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <!-- grab P5.js from a CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/p5.min.js"></script>
     <!-- grab a local javascript file with you own code -->
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
     <script src="participant-1.js"></script>
+    <link rel="stylesheet" href="participant-style.css">
   </head>
 
 
 
   <body>
+    <script>
+       document.body.addEventListener('touchmove', function(event) {
+         console.log(event.source);
+         //if (event.source == document.body)
+           event.preventDefault();
+       }, false);
 
+       window.onresize = function() {
+         $(document.body).width(window.innerWidth).height(window.innerHeight);
+       }
+
+       $(function() {
+         window.onresize();
+       });
+     </script>
   </body>
 </html>

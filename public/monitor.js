@@ -3,9 +3,10 @@ var message_state = 0;
 var rightDiameter = 0;
 var leftDiameter = 0;
 var indBool = 0;
+var trans = 255;
 
 function setup(){
-  createCanvas(700, 500);
+  createCanvas(windowWidth, windowHeight);
   background(0);
 }
 
@@ -37,8 +38,19 @@ function draw(){
     console.log('reset');
   }
 
-  ellipse(400,200,rightDiameter);
-  ellipse(200,200,leftDiameter);
+  fill(255,255,255);
+  rect(0,0,windowWidth/2,windowHeight);
+
+  ellipse(windowWidth/2+windowWidth/4,windowHeight/2,rightDiameter);
+  fill(0,0,0,255);
+  ellipse(windowWidth/2-windowWidth/4,windowHeight/2,leftDiameter);
+
+  textSize(24);
+  textStyle(BOLD);
+  fill(255,255,255);
+  text("TEAM 2", windowWidth/2+windowWidth/4-50, windowHeight-100, 300, 100);
+  fill(0);
+  text("TEAM 1", windowWidth/2-windowWidth/4-50, windowHeight-100, 300, 100);
 
   reduceTargets();
 }
@@ -68,3 +80,7 @@ socket.on('trigger_2', function(){
   console.log("trigger 2 listener fired");
   message_state=3;
 })
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
