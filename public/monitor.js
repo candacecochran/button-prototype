@@ -1,5 +1,5 @@
 
-var socket = io('http://localhost');    //http://socket.io/docs/
+var socket = io('https://localhost');    //http://socket.io/docs/
 
 var message_state = 0;
 var rightDiameter = 0;
