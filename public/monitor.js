@@ -1,4 +1,4 @@
-var socket = io.connect( "https://localhost:8080" );     //http://socket.io/docs/
+var socket = io.connect( 'https://localhost' );     //http://socket.io/docs/
 var message_state = 0;
 var rightDiameter = 0;
 var leftDiameter = 0;
