@@ -8,7 +8,7 @@ var server = app.listen(8081, function () {
 var io = require('socket.io')(server);    //http://socket.io/docs/
 
 server.listen(app.get('port'));
-
+app.use(express.static('public'));
 
 io.sockets.on('connection', function (socket) {
   console.log("Client ID"+socket.id+" connected");
