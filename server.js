@@ -3,11 +3,13 @@ var app = express();
 var server = app.listen(8081, function () {
   console.log("Shazam! listening on port 8081");
 })
-var io = require('socket.io')(server);    //http://socket.io/docs/
 
 app.use(express.static('public'));
 
-io.sockets.on('connection', function (socket) {
+var io = require('socket.io')(server);    //http://socket.io/docs/
+var name_spaced_com = io.of('/mike-v'); //change this name!!!
+
+name_spaced_com.on('connection', function (socket) {
   console.log("Client ID"+socket.id+" connected");
 
   app.get('/trigger_1', function(request,response){
