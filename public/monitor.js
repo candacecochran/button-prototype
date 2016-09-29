@@ -48,9 +48,9 @@ function draw(){
   textSize(24);
   textStyle(BOLD);
   fill(255,255,255);
-  text("TEAM 2", windowWidth/2+windowWidth/4-50, windowHeight-100, 300, 100);
+  text("TEAM 1", windowWidth/2+windowWidth/4-50, windowHeight-100, 300, 100);
   fill(0);
-  text("TEAM 1", windowWidth/2-windowWidth/4-50, windowHeight-100, 300, 100);
+  text("TEAM 2", windowWidth/2-windowWidth/4-50, windowHeight-100, 300, 100);
 
   reduceTargets();
 }

@@ -14,30 +14,28 @@ function setup(){
 function draw(){
   background(0);
 
-  fill(255,255,255,0)
-  strokeWeight(5);
-  stroke(r,g,b,trans)
+  fill(255,255,255,0)         // create an invisible ellipse
+  strokeWeight(5);            // defines thickness of ring
+  stroke(r,g,b,trans)         // creates visible ring around ellipse
   ellipse(touchX, touchY, x, x);
 
   x = x + 5;
   trans = trans - 9;
 }
 
-function touchStarted() {
-  ellipse(touchX, touchY, 5, 5);
-  httpGet('/trigger_1');
-  trans = 255;
-  x = 20;
-  r = 255 - random(100,200);
+function touchStarted() {      // detects user touching screen
+  httpGet('/trigger_1');       // sends trigger to server
+  trans = 255;                 // redefines ring transparency
+  x = 20;                      // redefines ellipse diameter
+  r = 255 - random(100,200);   //randomize RGB value for every ring
   g = 255 - random(200,255);
   b = 255 - random(1,255);
 }
 
-function deviceMoved() {
-  setMoveThreshold(5);
+function deviceShaken() {
   httpGet('/trigger_1');
 }
 
-function windowResized() {
+function windowResized() {      // resizes canvas to fit window
   resizeCanvas(windowWidth, windowHeight);
 }
