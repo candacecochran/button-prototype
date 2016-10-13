@@ -11,6 +11,7 @@ var x = 20;
 var r = 255;
 var g = 255;
 var b = 255;
+var analyzer;
 
 function preload() {  // preload() runs once
   song = loadSound('sound/work.mp3');
@@ -22,6 +23,9 @@ function setup(){
   background(0);
   song.loop();
   song_b.loop();
+
+  analyzer = new p5.Amplitude();
+  analyzer.setInput(song);
 }
 
 function draw(){
@@ -62,7 +66,8 @@ function draw(){
   fill(0,0,0,255);                                                      // sets color to black
   ellipse(windowWidth/2-windowWidth/4,windowHeight/2,leftDiameter);     // creates left circle
 
-  textSize(24);                                                         // creates labels
+  var rms = analyzer.getLevel();
+  textSize(rms*100);                                                         // creates labels
   textStyle(BOLD);
   fill(255,255,255);
   text("TEAM 2", windowWidth/2+windowWidth/4-50, windowHeight-100, 300, 100);
@@ -73,14 +78,6 @@ function draw(){
   song.setVolume(vol);
   song_b.setVolume(vol_b);
   reduceSound();
-
-  fill(255,255,255,0)         // create an invisible ellipse
-  strokeWeight(5);            // defines thickness of ring
-  stroke(r,g,b,trans)         // creates visible ring around ellipse
-  ellipse(random(50,windowWidth/2), random(50,windowHeight), x, x);
-
-  x = x + 5;
-  trans = trans - 9;                                                    // calls function that shrinks circles when no triggers are touched
 }
 
 function reduceTargets() {
@@ -98,8 +95,6 @@ function reduceTargets() {
 function reduceSound() {
   vol = leftDiameter/100;
   vol_b = rightDiameter/100;
-  console.log(vol);
-  console.log("vol_b: ",vol);
 }
 
 
