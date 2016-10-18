@@ -39,7 +39,7 @@ function draw(){
   }
   else if(message_state==1){    //if trigger 1 is pressed, executes code within
     if(leftDiameter<100) {                // makes sure circle doesn't get bigger than 100%
-      leftDiameter = leftDiameter+3;
+      leftDiameter = leftDiameter+5;
       if(rightDiameter>10) {
         rightDiameter = rightDiameter - 5;
       }    // adds 10 to the diameter of the circle
@@ -51,7 +51,7 @@ function draw(){
   }
   else if(message_state==3) {             // if trigger 2 is pressed, executes code within
     if(rightDiameter<100) {
-      rightDiameter = rightDiameter+3;
+      rightDiameter = rightDiameter+5;
       if(leftDiameter>10) {
         leftDiameter = leftDiameter - 5;
       }
@@ -92,7 +92,7 @@ function reduceSound() {
 
 function makeIndicator(y) {
   if(y<windowHeight) {
-    fill(0,0,255,255);
+    fill(244,66,66,255);
     rect(0,0,windowWidth/2,y*10);
     console.log(y*10);
   }
@@ -100,7 +100,7 @@ function makeIndicator(y) {
 
 function makeIndicator_b(y) {
   if(y<windowHeight) {
-    fill(255,0,0,255);
+    fill(237,45,45,255);
     rect(windowWidth/2,0,windowWidth/2,y*10);
     console.log(y*10);
   }
